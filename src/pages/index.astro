@@ -16,16 +16,16 @@ import '../styles/global.scss'
   <head>
     <meta charset="utf-8" />
 
-    <title>AW 2025 Portfolio – Open Source Edition</title>
+    <title>RAKIBUL HASAN – WEB DEVELOPER</title>
 
     <meta
       name="description"
-      content="Take a peek behind the scenes of a senior dev’s awarded portfolio. Clone it, learn from it, build your own. But don’t just steal it—the community will call you out, and you’ll doom yourself to eternal mediocrity." />
+      content="Full Stack Developer based in DHAKA, BANGLADESH. Building fast, accessible web products." />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
 
-    <meta name="robots" content="noindex, nofollow" />
-    <link rel="canonical" href="https://public.wodniack.dev/" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://rakibul-hasan.dev/" />
 
     <link
       rel="icon"
@@ -40,23 +40,23 @@ import '../styles/global.scss'
       sizes="180x180"
       href="/icons/apple-touch-icon.png"
     />
-    <meta name="apple-mobile-web-app-title" content="AW Portfolio" />
+    <meta name="apple-mobile-web-app-title" content="RH Portfolio" />
 
-    <meta name="theme-color" content="#160000" />
-    <meta name="msapplication-navbutton-color" content="#160000" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="#160000" />
+    <meta name="theme-color" content="#f40c3f" />
+    <meta name="msapplication-navbutton-color" content="#f40c3f" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#f40c3f" />
 
     <meta property="og:locale" content="en_GB" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Antoine Wodniack 2025 Portfolio – Open Source Edition" />
-    <meta property="og:description" content="Take a peek behind the scenes of a senior dev’s awarded portfolio. Clone it, learn from it, build your own. But don’t just steal it—the community will call you out, and you’ll doom yourself to eternal mediocrity." />
-    <meta property="og:url" content="https://public.wodniack.dev/" />
-    <meta property="og:site_name" content="Antoine Wodniack 2025 Portfolio – Open Source Edition" />
-    <meta property="og:image" content="https://public.wodniack.dev/images/aw-creative-developer.png" />
+    <meta property="og:title" content="RAKIBUL HASAN – Portfolio" />
+    <meta property="og:description" content="Full Stack Developer based in DHAKA, BANGLADESH. Building fast, accessible web products." />
+    <meta property="og:url" content="https://rakibul-hasan.dev/" />
+    <meta property="og:site_name" content="RAKIBUL HASAN – Portfolio" />
+    <meta property="og:image" content="https://rakibul-hasan.dev/images/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="675" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://public.wodniack.dev/images/aw-creative-developer.png" />
+    <meta name="twitter:image" content="https://rakibul-hasan.dev/images/og-image.png" />
 
     <link
       rel="preload"
@@ -118,25 +118,11 @@ import '../styles/global.scss'
 
     <div
       class="site-intro js-intro"
-      style="opacity: 1; position: fixed; top: 0; left: 0; z-index: 50; width: 100%; height: 100%; background: #F40C3F;"
+      style="opacity:1; position:fixed; top:0; left:0; z-index:50; width:100%; height:100%;"
     >
-      <div class="sb-logo js-logo">
-        <div class="sb__path sb__path--v sb__path--v-1 js-logo-line-v"></div>
-        <div class="sb__path sb__path--h sb__path--h-1 js-logo-line-h"></div>
-        <div class="sb__path sb__path--v sb__path--v-2 js-logo-line-v"></div>
-        <div class="sb__path sb__path--v sb__path--v-3 js-logo-line-v"></div>
-        <div class="sb__path sb__path--h sb__path--h-2 js-logo-line-h"></div>
-        <div class="sb__path sb__path--v sb__path--v-4 js-logo-line-v"></div>
-        <div class="sb__path sb__path--h sb__path--h-3 js-logo-line-h"></div>
-        <div class="sb__path sb__path--v sb__path--v-5 js-logo-line-v"></div>
-      </div><!-- .sb-logo -->
-
-      <div class="site-intro__border site-intro__border--top js-border-top">
-      </div>
-      <div class="site-intro__border site-intro__border--left js-border-left">
-      </div>
-      <div class="site-intro__border site-intro__border--right js-border-right">
-      </div>
+      <div class="site-intro__panel site-intro__panel--left js-panel-left"></div>
+      <div class="site-intro__panel site-intro__panel--right js-panel-right"></div>
+      <div class="site-intro__name js-intro-name">RAKIBUL HASAN</div>
     </div><!-- .site-intro -->
 
     <div class="site-mount js-mount"></div>
@@ -389,133 +375,57 @@ import '../styles/global.scss'
        * Intro
        */
       intro() {
-        // Selectors
-        const wrapper: HTMLElement = document.querySelector('.js-site-wrapper')
-        const intro: HTMLElement = document.querySelector('.js-intro')
-        const mount: HTMLElement = document.querySelector('.js-mount')
-        const logoLinesV: NodeList = intro.querySelectorAll('.js-logo-line-v')
-        const logoLinesH: NodeList = intro.querySelectorAll('.js-logo-line-h')
-        const borderTop: HTMLElement = intro.querySelector('.js-border-top')
-        const borderLeft: HTMLElement = intro.querySelector('.js-border-left')
-        const borderRight: HTMLElement = intro.querySelector('.js-border-right')
+        const wrapper    = document.querySelector('.js-site-wrapper')
+        const intro      = document.querySelector('.js-intro')
+        const mount      = document.querySelector('.js-mount')
+        const panelLeft  = intro.querySelector('.js-panel-left')
+        const panelRight = intro.querySelector('.js-panel-right')
+        const name       = intro.querySelector('.js-intro-name')
 
-        // Timeline
         const tl = gsap.timeline()
 
-        tl.set(wrapper, {
-          opacity: '',
-        })
+        tl.set(wrapper, { opacity: '' }, 0)
 
-        tl.set(intro, {
-          background: 'transparent',
-        })
+        // Name appears
+        tl.to(name, {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: 'power3.out',
+        }, 0.3)
 
-        tl.fromTo(
-          logoLinesV,
-          {
-            scaleY: 0,
-          },
-          {
-            scaleY: 1,
-            duration: 1,
-            ease: 'power4.inOut',
-            stagger: 0.15,
-          },
-          0
-        )
+        // Panels split open
+        tl.to(panelLeft, {
+          scaleX: 0,
+          duration: 1.1,
+          ease: 'power4.inOut',
+        }, 1.2)
 
-        tl.fromTo(
-          logoLinesH,
-          {
-            scaleX: 0,
-          },
-          {
-            scaleX: 1,
-            duration: 0.4,
-            ease: 'power4.inOut',
-            stagger: 0,
-          },
-          1
-        )
+        tl.to(panelRight, {
+          scaleX: 0,
+          duration: 1.1,
+          ease: 'power4.inOut',
+        }, 1.2)
 
-        tl.set(logoLinesV, {
-          transformOrigin: '50% 0',
-        })
+        // Name fades as panels open
+        tl.to(name, {
+          opacity: 0,
+          duration: 0.35,
+          ease: 'power2.in',
+        }, 1.3)
 
-        tl.fromTo(
-          logoLinesV,
-          {
-            scaleY: 1,
-          },
-          {
-            scaleY: 0,
-            duration: 1,
-            ease: 'power4.in',
-            immediateRender: false,
-            stagger: 0.1,
-          },
-          2
-        )
+        // Trigger hero animation
+        tl.call(() => {
+          document.dispatchEvent(new CustomEvent('intro'))
+        }, null, 1.5)
 
-        tl.fromTo(
-          logoLinesH,
-          {
-            scaleY: 1,
-          },
-          {
-            scaleY: 0,
-            duration: 0.5,
-            ease: 'power4.in',
-            immediateRender: false,
-            stagger: 0.1,
-          },
-          2.1
-        )
-
-        tl.from(
-          borderTop,
-          {
-            scaleY: 0,
-            duration: 3,
-            ease: 'power3.inOut',
-          },
-          1
-        )
-
-        tl.from(
-          [borderLeft, borderRight],
-          {
-            scaleX: 0,
-            duration: 3,
-            ease: 'power3.inOut',
-          },
-          1
-        )
-
-        tl.call(
-          () => {
-            document.dispatchEvent(new CustomEvent('intro'))
-          },
-          null,
-          '-=1.85'
-          // 0.5
-        )
-
-        tl.call(
-          () => {
-            mount.style.opacity = '1'
-            intro.remove()
-
-            document.documentElement.classList.remove('is-scroll-blocked')
-
-            Ticker.nextTick(() => {
-              Emitter.emit('updateViewport')
-            })
-          },
-          null,
-          5
-          // 0
-        )
+        // Cleanup
+        tl.call(() => {
+          mount.style.opacity = '1'
+          intro.remove()
+          document.documentElement.classList.remove('is-scroll-blocked')
+          Ticker.nextTick(() => { Emitter.emit('updateViewport') })
+        }, null, 2.8)
       }
     }
 
@@ -533,11 +443,11 @@ import '../styles/global.scss'
     body {
       position: relative;
 
-      padding: 1rem;
+      padding: 0.375rem;
       min-height: 100vh;
 
       @include mq(phone) {
-        padding: 0.5rem;
+        padding: 0.375rem;
       }
     }
 
@@ -553,7 +463,7 @@ import '../styles/global.scss'
       background: map.get($theme-colors, 'default', 'primary');
       border-color: map.get($theme-colors, 'default', 'secondary');
       border-style: solid;
-      border-width: 0 1rem 0 0;
+      border-width: 0 0.375rem 0 0;
       mix-blend-mode: darken;
       transform: translate3d(-100%, 0, 0);
 
@@ -561,7 +471,7 @@ import '../styles/global.scss'
       will-change: transform;
 
       @include mq(phone) {
-        border-right-width: 0.5rem;
+        border-right-width: 0.375rem;
       }
     }
 
@@ -574,124 +484,48 @@ import '../styles/global.scss'
       width: 100%;
       height: 100%;
 
-      background: color(primary);
-
-      .sb-logo {
+      &__panel {
         position: absolute;
-        top: 50%;
-        left: 50%;
+        top: 0;
 
-        width: 3rem;
-        height: 3rem;
-
-        transform: translate3d(-50%, -50%, 0);
-
-        @include mq(phone) {
-          width: 1.875rem;
-          height: 1.875rem;
-        }
-
-        .sb__path {
-          position: absolute;
-
-          background: color(secondary);
-
-          &--v {
-            top: 0;
-
-            width: 14.2857%;
-            height: 100%;
-
-            transform-origin: 50% 100%;
-
-            &-1 {
-              left: 0;
-            }
-
-            &-2 {
-              left: 21.3214%;
-            }
-
-            &-3 {
-              left: 43.2143%;
-            }
-
-            &-4 {
-              left: 64.7857%;
-            }
-
-            &-5 {
-              right: 0;
-            }
-          }
-
-          &--h {
-            width: 7.5%;
-            height: 6%;
-
-            &-1 {
-              top: 0;
-              left: 14.2857%;
-
-              transform-origin: 100% 0;
-            }
-
-            &-2 {
-              left: 57.5%;
-              bottom: 0;
-
-              transform-origin: 0 0;
-            }
-
-            &-3 {
-              right: 14.2857%;
-              bottom: 0;
-
-              transform-origin: 0% 0;
-            }
-          }
-        }
-      }
-
-      &__border {
-        --width: 1rem;
-
-        position: absolute;
+        width: 50.1%; // slight overlap to prevent hairline gap
+        height: 100%;
 
         background: color(secondary);
 
-        @include mq(phone) {
-          --width: 0.5rem;
-        }
-
-        &--top {
-          top: 0;
-          left: 0;
-
-          width: 100%;
-          height: var(--width);
-
-          transform-origin: 50% 0;
-        }
-
-        &--left,
-        &--right {
-          top: 0;
-          left: 0;
-
-          width: var(--width);
-          height: 100%;
-        }
-
         &--left {
+          left: 0;
           transform-origin: 0 50%;
         }
 
         &--right {
-          left: auto;
           right: 0;
-
           transform-origin: 100% 50%;
+        }
+      }
+
+      &__name {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 2;
+
+        transform: translate(-50%, -50%);
+
+        font: 700 7vw / 1 font-family(bigger);
+        color: color(primary);
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        white-space: nowrap;
+
+        opacity: 0;
+        translate: 0 0.5em 0;
+
+        pointer-events: none;
+
+        @include mq(phone) {
+          font-size: 10vw;
         }
       }
     }
@@ -701,10 +535,10 @@ import '../styles/global.scss'
       z-index: 2;
 
       background: color(primary);
-      clip-path: inset(0 -1rem);
+      clip-path: inset(0 -0.375rem);
 
       @include mq(phone) {
-        clip-path: inset(0 -0.5rem);
+        clip-path: inset(0 -0.375rem);
       }
     }
 
@@ -717,7 +551,7 @@ import '../styles/global.scss'
       width: 100%;
       height: 100%;
 
-      border: 1rem solid color(secondary);
+      border: 0.375rem solid color(secondary);
 
       opacity: 0;
       will-change: border-width;
